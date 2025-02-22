@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public class HelloWorld
+{
+    static public void Main()
+    {
+        String line;
+        line = Console.ReadLine();
+        int N = Convert.ToInt32(line);
+        int[][] ratings = new int[N][];
+        for(int i_ratings = 0; i_ratings < N; i_ratings++)
+        {
+            line = Console.ReadLine();
+            ratings[i_ratings] = line.Split().Select(str => int.Parse(str)).ToArray();
+        }
+
+        int out_ = solution(N, ratings);
+        Console.Out.WriteLine(out_);
+    }
+
+    static int solution(int N, int[][] ratings)
+    {
+        // Diccionario para almacenar las calificaciones totales y el conteo de calificaciones para cada plato
+        Dictionary<int, (int totalRating, int count)> dishRatings = new Dictionary<int, (int, int)>();
+
+        // Procesar cada calificación
+        for (int i = 0; i < N; i++)
+        {
+            int id = ratings[i][0];
+            int rating = ratings[i][1];
+
+            if (dishRatings.ContainsKey(id))
+            {
+                dishRatings[id] = (dishRatings[id].totalRating + rating, dishRatings[id].count + 1);
+            }
+            else
+            {
+                dishRatings[id] = (rating, 1);
+            }
+        }
+
+        int bestDishId = -1;
+        double highestAverage = -1.0;
+
+        // Encontrar el plato con la calificación promedio más alta
+        foreach (var dish in dishRatings)
+        {
+            double average = (double)dish.Value.totalRating / dish.Value.count;
+            if (average > highestAverage || (average == highestAverage && dish.Key < bestDishId))
+            {
+                highestAverage = average;
+                bestDishId = dish.Key;
+            }
+        }
+
+        return bestDishId;
+    }
+}

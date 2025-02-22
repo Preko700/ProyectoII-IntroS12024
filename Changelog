@@ -1,0 +1,45 @@
+# commit 1: Initial commit
+- Added main.py with basic functionality:
+  - Created a window using Tkinter
+  - Added a canvas for drawing
+  - Defined color buttons and functionality buttons
+  - Implemented drawing functionality
+
+# commit 2: Added initial functionalities
+- Added 'Editor' class with methods for image editing
+- Implemented basic image manipulation methods in the 'Editor' class
+- Added event binding for drawing on canvas
+- Created buttons for basic functionalities (Zoom In, Zoom Out, Rotate, Reflect, High Contrast, Negative, ASCII Art)
+
+# commit 3: Improved button creation
+- Added 'crear_botones' function to create color buttons iteratively
+- Added 'crear_botones_funcionalidades' function to create functionality buttons iteratively
+
+# commit 4: Updated layout and added menu bar
+- Rearranged buttons to improve layout
+- Added menu bar with options for loading, saving, and clearing images
+- Implemented methods for loading and saving images in 'Editor' class
+
+# commit 5: Bug fixes and enhancements
+- Fixed pixel_size issue in Zoom In/Out functionalities
+- Improved button layout to prevent overlapping
+- Adjusted canvas size and window dimensions for better layout
+- Ensured color selection updates correctly
+
+# commit 6: Final layout adjustments
+- Separated buttons into different frames for better organization
+- Positioned functionality buttons to the right of color buttons
+- Adjusted window size to accommodate all buttons and canvas
+- Verified all functionalities work as expected
+
+# commit 7: Load image functionality and ASCII art update
+- Implemented function to load image from text file
+- Updated ASCII art conversion to handle character conversion and display correctly
+- Fixed method naming conflicts for matrix updates
+- Improved error handling for file operations
+
+# commit 8: View original matrix functionality
+- Added functionality to view the original matrix with colors after viewing ASCII art or numeric matrix
+- Implemented 'ver_imagen' method in 'Editor' class and updated main file to handle it
+- Verified seamless switching between different matrix views (numeric, ASCII, and original colored matrix)
+
